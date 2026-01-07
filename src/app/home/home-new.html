@@ -57,7 +57,7 @@
                 </button>
               </div>
             </div>
-            <!-- Containers pour injection dynamique -->
+            <!-- Container pour injection dynamique du composant highlight -->
             <div #highlightContainer></div>
           </li>
         }
@@ -73,7 +73,7 @@
     </div>
   }
 
-  <!-- Modal d'édition (affiché déclarativement) -->
+  <!-- Modal d'édition (affiché dynamiquement) -->
   @if (editingTaskId !== null && editingTaskTitle !== null) {
     <app-task-edit 
       [taskTitle]="editingTaskTitle"
@@ -81,5 +81,4 @@
       (cancel)="cancelTaskEdit()"
     ></app-task-edit>
   }
-
 </div>

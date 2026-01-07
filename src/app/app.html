@@ -4,12 +4,12 @@
     <ul class="nav-menu">
       <li>
         <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-          Accueil
+          Home
         </a>
       </li>
       <li>
         <a routerLink="/about" routerLinkActive="active">
-          À Propos
+          About
         </a>
       </li>
     </ul>
@@ -19,5 +19,7 @@
 <main class="main-content">
   <router-outlet></router-outlet>
 </main>
+
+<app-notifications></app-notifications>
 
 

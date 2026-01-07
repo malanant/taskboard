@@ -1,0 +1,22 @@
+<div class="home-content">
+  <h2>Mes tâches (Feature)</h2>
+
+  <div class="task-input-section">
+    <input #taskInput placeholder="Ajouter une nouvelle tâche...">
+    <button (click)="addTask(taskInput.value); taskInput.value = ''">Ajouter</button>
+  </div>
+
+  @if (tasks$ | async; as tasks) {
+    @if (tasks.length > 0) {
+      <ul>
+        @for (task of tasks; track task.id) {
+          <li>{{ task.title }}</li>
+        }
+      </ul>
+    } @else {
+      <div class="empty-state"><p>Aucune tâche.</p></div>
+    }
+  } @else {
+    <div class="loading">Chargement...</div>
+  }
+</div>

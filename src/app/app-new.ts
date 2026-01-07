@@ -11,5 +11,5 @@ import { NotificationsComponent } from './shared/components/notifications/notifi
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('ProjetFilRouge');
+  protected readonly title = signal('Projet Fil Rouge');
 }

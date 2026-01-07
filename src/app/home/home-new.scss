@@ -1,0 +1,242 @@
+.home-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px 20px;
+
+  h2 {
+    color: #2c3e50;
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  p {
+    color: #7f8c8d;
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
+// Section du formulaire d'ajout
+.task-input-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+
+  input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #ecf0f1;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    }
+
+    &::placeholder {
+      color: #bdc3c7;
+    }
+  }
+
+  button {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+// Liste des tâches
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    background: white;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    color: #2c3e50;
+    font-size: 15px;
+    position: relative;
+
+    &:hover {
+      transform: translateX(5px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      border-left-color: #2980b9;
+    }
+
+    &.highlighted {
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 237, 78, 0.1));
+      border-left-color: #ffd700;
+      box-shadow: 0 4px 16px rgba(255, 215, 0, 0.3);
+    }
+
+    &.completed {
+      background: #f0f0f0;
+      opacity: 0.7;
+      border-left-color: #95a5a6;
+
+      .task-title.strike {
+        text-decoration: line-through;
+        color: #95a5a6;
+      }
+    }
+
+    &:before {
+      content: "✓";
+      display: inline-block;
+      margin-right: 12px;
+      color: #27ae60;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    // Contenu de la tâche avec actions
+    .task-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .task-title {
+      flex: 1;
+
+      &.strike {
+        text-decoration: line-through;
+        color: #95a5a6;
+      }
+    }
+
+    .task-actions {
+      display: flex;
+      gap: 6px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    &:hover .task-actions {
+      opacity: 1;
+    }
+
+    // Boutons d'action
+    .btn-complete,
+    .btn-highlight,
+    .btn-edit,
+    .btn-delete {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 4px 6px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      opacity: 0.7;
+
+      &:hover {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+    }
+
+    .btn-complete {
+      &:hover {
+        background: rgba(39, 174, 96, 0.2);
+      }
+
+      &.active {
+        opacity: 1;
+        background: rgba(39, 174, 96, 0.3);
+      }
+    }
+
+    .btn-highlight {
+      &:hover {
+        background: rgba(255, 215, 0, 0.2);
+      }
+
+      &.active {
+        opacity: 1;
+        background: rgba(255, 215, 0, 0.3);
+      }
+    }
+
+    .btn-edit {
+      &:hover {
+        background: rgba(52, 152, 219, 0.2);
+      }
+    }
+
+    .btn-delete {
+      &:hover {
+        background: rgba(231, 76, 60, 0.2);
+      }
+    }
+  }
+}
+
+// État de chargement
+.loading {
+  text-align: center;
+  padding: 40px 20px;
+  color: #95a5a6;
+  font-size: 16px;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 3px solid #ecf0f1;
+    border-top: 3px solid #3498db;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    vertical-align: middle;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// État vide
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #95a5a6;
+
+  p {
+    font-size: 16px;
+    margin: 0;
+  }
+}

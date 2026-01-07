@@ -1,0 +1,5 @@
+.home-content { max-width: 720px; margin: 0 auto; padding: 24px; }
+.task-input-section { display:flex; gap:8px; margin-bottom:18px; }
+ul { list-style:none; padding:0; }
+li { background:white; padding:12px; margin-bottom:10px; border-radius:6px; border-left:4px solid #3498db; }
+.empty-state, .loading { text-align:center; color:#95a5a6; padding:20px; }

@@ -16,24 +16,30 @@ import { TaskStatsComponent } from '../shared/components/task-stats/task-stats';
 export class Home implements AfterViewInit {
   private taskService = inject(TaskService);
   private notificationService = inject(NotificationService);
-  private viewContainerRef = inject(ViewContainerRef);
   
   tasks$ = this.taskService.tasks$;
   stats$ = this.taskService.stats$;
   
-  @ViewChildren('highlightContainer', { read: ViewContainerRef })
-  highlightContainers!: QueryList<ViewContainerRef>;
-  
+  // État du modal d'édition
   editingTaskId: number | null = null;
   editingTaskTitle: string | null = null;
+  
+  @ViewChildren('highlightContainer', { read: ViewContainerRef })
+  highlightContainers!: QueryList<ViewContainerRef>;
 
   constructor() {
-    // Observer les émissions (exemple de tap/log)
-    this.taskService.tasks$.subscribe({ next: (tasks) => console.log('✅ Observable émis', tasks.length) });
+    // Utiliser tap() avec notifications via le service Task
+    this.taskService.tasks$.subscribe({
+      next: (tasks) => {
+        console.log('✅ Observable émis avec', tasks.length, 'tâches');
+      }
+    });
   }
 
   ngAfterViewInit() {
-    this.tasks$.subscribe(() => this.updateHighlights());
+    this.tasks$.subscribe(() => {
+      this.updateHighlights();
+    });
   }
 
   addTask(title: string) {
@@ -63,12 +69,11 @@ export class Home implements AfterViewInit {
   }
 
   saveTaskEdit(newTitle: string) {
-    if (this.editingTaskId != null) {
+    if (this.editingTaskId !== null && newTitle.trim()) {
       this.taskService.updateTask(this.editingTaskId, newTitle);
       this.notificationService.success('✏️ Tâche modifiée !');
     }
-    this.editingTaskId = null;
-    this.editingTaskTitle = null;
+    this.cancelTaskEdit();
   }
 
   cancelTaskEdit() {

@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global styles */
+html, body {
+	height: 100%;
+}
+/* Remove default body margin to avoid white gutters around the app */
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+	background: #f4f6f8;
+	color: #2c3e50;
+}
+
+/* Utility to ensure main app stretches full width/height */
+app-root, body > :first-child {
+	min-height: 100vh;
+}
