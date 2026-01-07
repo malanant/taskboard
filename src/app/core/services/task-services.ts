@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +10,12 @@ export class TaskService {
     { id: 2, title: 'Créer TaskBoard Pro' }
   ];
 
-  getTasks() {
-    return of(this.tasks).pipe(delay(2000));
+  private tasksSubject = new BehaviorSubject(this.tasks);
+  tasks$ = this.tasksSubject.asObservable();
+
+  addTask(title: string) {
+    const newTask = { id: Date.now(), title };
+    this.tasks.push(newTask);
+    this.tasksSubject.next(this.tasks);  // 🔥 Émet la nouvelle liste
   }
 }

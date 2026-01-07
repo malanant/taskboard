@@ -1,4 +1,30 @@
 <div class="home-content">
-  <h2>Accueil</h2>
-  <p>Bienvenue sur la page d'accueil de ProjetFilRouge !Test</p>
+  <h2>Mes tâches</h2>
+
+  <!-- Formulaire d'ajout -->
+  <div class="task-input-section">
+    <input #taskInput placeholder="Ajouter une nouvelle tâche...">
+    <button (click)="addTask(taskInput.value); taskInput.value = ''">
+      Ajouter
+    </button>
+  </div>
+
+  <!-- Liste des tâches -->
+  @if (tasks$ | async; as tasks) {
+    @if (tasks.length > 0) {
+      <ul>
+        @for (task of tasks; track task.id) {
+          <li>{{ task.title }}</li>
+        }
+      </ul>
+    } @else {
+      <div class="empty-state">
+        <p>📋 Aucune tâche pour le moment. Créez-en une !</p>
+      </div>
+    }
+  } @else {
+    <div class="loading">
+      Chargement de vos tâches...
+    </div>
+  }
 </div>
