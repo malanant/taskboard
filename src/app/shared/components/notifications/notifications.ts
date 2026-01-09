@@ -1,18 +1,20 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NotificationService, Notification } from '../../../core/services/notification.service';
+import { NotificationService } from '../../../core/services/notification.service';
 
 @Component({
   selector: 'app-notifications',
   standalone: true,
   imports: [CommonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="notifications-container">
-      @for (notification of (notificationService.notifications$ | async); track notification.id) {
-        <div class="notification" [class]="'notification-' + notification.type" 
-             [@slideIn]>
-          {{ notification.message }}
-        </div>
+      @if (notificationService.notifications$ | async; as notifications) {
+        @for (notification of notifications; track notification.id) {
+          <div class="notification" [ngClass]="'notification-' + notification.type">
+            {{ notification.message }}
+          </div>
+        }
       }
     </div>
   `,
