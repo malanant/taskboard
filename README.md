@@ -36,6 +36,18 @@ ng build
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
+### 🚀 Deployment
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions.
+
+**Quick start:**
+```bash
+npm run build
+vercel --prod
+```
+
+Supported platforms: Vercel, Netlify, Firebase, Docker, Kubernetes, and more.
+
 ## Running unit tests
 
 To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
@@ -437,15 +449,21 @@ Vecteurs testés :
 
 ### 🎯 Prochaines Étapes
 
-1. **Court terme :**
-   - Déployer le build de production
+1. **Immédiat :**
+   - ✅ Voir [DEPLOYMENT.md](DEPLOYMENT.md) pour le déploiement Vercel
+   - Tester localement: `npm run build` puis `npx serve dist/ProjetFilRouge/browser`
+
+2. **Court terme :**
+   - Déployer sur Vercel ou alternative
    - Configurer CSP headers
+   - Setup monitoring (Sentry)
 
-2. **Moyen terme :**
+3. **Moyen terme :**
    - Implémenter Service Worker
-   - Ajouter monitoring (Sentry/DataDog)
+   - Ajouter analytics (Google Analytics)
+   - Custom domain + SSL
 
-3. **Long terme :**
+4. **Long terme :**
    - E2E tests avec Cypress
    - Dark mode support
    - Persistent storage
