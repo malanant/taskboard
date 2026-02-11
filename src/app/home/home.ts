@@ -1,4 +1,4 @@
-import { Component, inject, ViewContainerRef, QueryList, ViewChildren, AfterViewInit } from '@angular/core';
+import { Component, inject, ViewContainerRef, QueryList, ViewChildren, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TaskService } from '../core/services/task-services';
 import { NotificationService } from '../core/services/notification.service';
@@ -12,6 +12,7 @@ import { TaskStatsComponent } from '../shared/components/task-stats/task-stats';
   imports: [CommonModule, TaskStatsComponent, TaskEditComponent],
   templateUrl: './home.html',
   styleUrls: ['./home.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Home implements AfterViewInit {
   private taskService = inject(TaskService);

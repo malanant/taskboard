@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/styles.scss"],
+  "sourcesContent": ["/* Global styles */\r\nhtml, body {\r\n\theight: 100%;\r\n}\r\n/* Remove default body margin to avoid white gutters around the app */\r\nbody {\r\n\tmargin: 0;\r\n\tfont-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial;\r\n\tbackground: #f4f6f8;\r\n\tcolor: #2c3e50;\r\n}\r\n\r\n/* Utility to ensure main app stretches full width/height */\r\napp-root, body > :first-child {\r\n\tmin-height: 100vh;\r\n}\r\n"],
+  "mappings": ";AACA;AAAA;AACC,UAAA;;AAGD;AACC,UAAA;AACA;IAAA,aAAA;IAAA,kBAAA;IAAA,UAAA;IAAA,MAAA;IAAA,gBAAA;IAAA;AACA,cAAA;AACA,SAAA;;AAID;AAAA,KAAA,EAAA;AACC,cAAA;;",
+  "names": []
+}

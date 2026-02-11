@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TaskService } from '../../core/services/task-services';
 import { Observable } from 'rxjs';
@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './tasks.html',
-  styleUrls: ['./tasks.scss']
+  styleUrls: ['./tasks.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Tasks {
   tasks$!: Observable<any[]>;

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/components/task-highlight/task-highlight.ts"],
+  "sourcesContent": ["\n    .highlight-badge {\n      position: absolute;\n      top: -30px;\n      left: 0;\n      background: linear-gradient(135deg, #ffd700, #ffed4e);\n      color: #333;\n      padding: 6px 12px;\n      border-radius: 20px;\n      font-weight: bold;\n      font-size: 12px;\n      white-space: nowrap;\n      box-shadow: 0 2px 8px rgba(255, 215, 0, 0.5);\n      animation: fadeInScale 0.3s ease-in-out;\n    }\n\n    @keyframes fadeInScale {\n      from {\n        opacity: 0;\n        transform: scale(0.8);\n      }\n      to {\n        opacity: 1;\n        transform: scale(1);\n      }\n    }\n  "],
+  "mappings": ";AACI,CAAA;AACE,YAAA;AACA,OAAA;AACA,QAAA;AACA;IAAA;MAAA,MAAA;MAAA,OAAA;MAAA;AACA,SAAA;AACA,WAAA,IAAA;AACA,iBAAA;AACA,eAAA;AACA,aAAA;AACA,eAAA;AACA,cAAA,EAAA,IAAA,IAAA,KAAA,GAAA,EAAA,GAAA,EAAA,CAAA,EAAA;AACA,aAAA,YAAA,KAAA;;AAGF,WAHE;AAIA;AACE,aAAA;AACA,eAAA,MAAA;;AAEF;AACE,aAAA;AACA,eAAA,MAAA;;;",
+  "names": []
+}
